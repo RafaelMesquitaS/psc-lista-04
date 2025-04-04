@@ -1,0 +1,51 @@
+public class Atv5 {
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        double populacaoA, populacaoB, taxaCrescimentoA, taxaCrescimentoB;
+        int anos;
+
+        do {
+            System.out.print("Digite a população inicial do país A: ");
+            populacaoA = scanner.nextDouble();
+            if (populacaoA <= 0) {
+                System.out.println("População inválida! Deve ser maior que zero.");
+            }
+        } while (populacaoA <= 0);
+
+        do {
+            System.out.print("Digite a população inicial do país B: ");
+            populacaoB = scanner.nextDouble();
+            if (populacaoB <= 0) {
+                System.out.println("População inválida! Deve ser maior que zero.");
+            }
+        } while (populacaoB <= 0);
+
+        do {
+            System.out.print("Digite a taxa de crescimento do país A (em %): ");
+            taxaCrescimentoA = scanner.nextDouble() / 100; 
+            if (taxaCrescimentoA <= 0) {
+                System.out.println("Taxa de crescimento inválida! Deve ser maior que zero.");
+            }
+        } while (taxaCrescimentoA <= 0);
+
+        do {
+            System.out.print("Digite a taxa de crescimento do país B (em %): ");
+            taxaCrescimentoB = scanner.nextDouble() / 100; 
+            if (taxaCrescimentoB <= 0) {
+                System.out.println("Taxa de crescimento inválida! Deve ser maior que zero.");
+            }
+        } while (taxaCrescimentoB <= 0);
+
+        anos = 0; // Contador de anos
+
+        // Loop até que a população A ultrapasse ou iguale a população B
+        while (populacaoA < populacaoB) {
+            populacaoA += populacaoA * taxaCrescimentoA; // Atualiza a população A
+            populacaoB += populacaoB * taxaCrescimentoB; // Atualiza a população B
+            anos++; // Incrementa o contador de anos
+        }
+
+        System.out.println("Número de anos necessários: " + anos);
+        scanner.close();
+}
+}
