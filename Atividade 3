@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Atv3 {
+     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int idade;
+        double salario;
+        String nome;
+        char sexo, estadoCivil;
+
+        do {
+            System.out.print("Digite o nome (maior que 2 caracteres): ");
+            nome = scanner.nextLine();
+            if (nome.length() <= 2) {
+                System.out.println("Nome inválido! Deve ter 3 ou caracteres.");
+            }
+        } while (nome.length() <= 2);
+
+        do {
+            System.out.print("Digite uma idade (de 0 a 150): ");
+            idade = scanner.nextInt();
+            if (idade < 0 || idade > 150) {
+                System.out.println("Idade inválida! Deve estar entre 0 e 150.");
+            }
+        } while (idade < 0 || idade > 150);
+
+        do {
+            System.out.print("Digite o salário (maior que R$ 0,00): ");
+            salario = scanner.nextDouble();
+            if (salario <= 0) {
+                System.out.println("Salário inválido! Deve ser maior que zero.");
+            }
+        } while (salario <= 0);
+
+        do {
+            System.out.print("Digite o sexo ('F' ou 'M'): ");
+            sexo = scanner.next().charAt(0);
+            if (sexo != 'f' && sexo != 'M') {
+                System.out.println("Sexo inválido! Deve ser 'F' ou 'M'.");
+            }
+        } while (sexo != 'F' && sexo != 'M');
+
+        do {
+            System.out.print("Digite o estado civil ('S', 'C', 'V', 'D'): ");
+            estadoCivil = scanner.next().charAt(0);
+            if (estadoCivil != 'S' && estadoCivil != 'C' && estadoCivil != 'V' && estadoCivil != 'D') {
+                System.out.println("Estado civil inválido! Deve ser 'S', 'C', 'V' ou 'D'.");
+            }
+        } while (estadoCivil != 'S' && estadoCivil != 'C' && estadoCivil != 'D' && estadoCivil != 'V');
+
+        System.out.println("Dados cadastrados com sucesso!");
+        System.out.println("Nome: " + nome + "Idade: " + idade + "sexo:" + sexo + "Estado Civil: " + estadoCivil );
+        scanner.close();
+    
+    } 
+}
